@@ -4,8 +4,13 @@ class ShopifyApp::ScripttagsManagerJobTest < ActiveSupport::TestCase
   test "#perform creates scripttags" do
     token = 'token'
     domain = 'example-app.com'
+    api_token = :unstable
 
-    ShopifyAPI::Session.expects(:temp).with(domain, token).yields
+
+    ShopifyAPI::Session
+      .expects(:temp)
+      .with(domain: domain, token: token, api_version: api_token)
+      .yields
 
     manager = mock('manager')
     manager.expects(:create_scripttags)
