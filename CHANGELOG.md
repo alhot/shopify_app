@@ -1,3 +1,8 @@
+8.6.1
+-----
+
+* Locked `shopify_api` gem to version < 7.0.  7.0 will have breaking changes that are incompatable with `shopify_app`
+
 8.6.0
 -----
 
